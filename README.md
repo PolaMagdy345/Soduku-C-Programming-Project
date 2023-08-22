@@ -25,7 +25,7 @@
 
 🌟 use #changing or #deleting if any of number cannot be placed in cell to replace previous number by calling the specific cell and putting if you need to delete this number or assign another one 😍.
 
-[!NOTE]
+# NOTE THAT:
 
 - Some bugs are handled at the code
 
