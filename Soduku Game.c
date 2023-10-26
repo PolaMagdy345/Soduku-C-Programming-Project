@@ -8,12 +8,12 @@ char Array_scanf(int arr[][9],int p[][2],int *px,int* py)
     {
         if(flag1==2)
         {
-            printf("  \tPlease enter row number: ");
+            printf("  \t- Please enter row number: ");
             fflush(stdin);
             scanf("%d",&x);
             if(x>=0 && x<=9)
             {
-                printf("  \tPlease enter coulumn number: ");
+                printf("  \t- Please enter coulumn number: ");
                 flag1--;
             }
             else
@@ -38,22 +38,23 @@ char Array_scanf(int arr[][9],int p[][2],int *px,int* py)
                         *px=x;
                         *py=y;
                         n=1;           //the space to write is accessed sucessfully
+                        flag1=2;
+                        return n;
                     }
-                    else
-                        n=-1;                 //you can't write here
                 }
+                        n=-1;                 //you can't write here
             }
             else
             {
-                printf(" wrong entry\n ");
-                printf("  \tPlease enter coulumn number: ");
+                printf(" Wrong entry\n ");
+                printf("  \t- Please enter coulumn number: ");
             }
-
         }
+        if(flag1==2)
+            return n;
     }
     flag1=2;
     return n;
-
 }
 
 char comparison_rows_coulumns(int arr[][9],int p[][2],int **px,int **py,int k,int num)
@@ -67,12 +68,12 @@ char comparison_rows_coulumns(int arr[][9],int p[][2],int **px,int **py,int k,in
         {
             if(num==arr[i][y])
             {
-                printf("repeated number in coulumn \n\n");
+                printf("Repeated number in coulumn \n\n");
                 return -1;                            //you can't write here due to repition of numbers in row
             }
             if(num==arr[x][i])
             {
-                printf("repeated number in row \n\n");
+                printf("Repeated number in row \n\n");
                 return -1;                            //you can't write here due to repition of numbers in coulumns
             }
         }
@@ -92,7 +93,7 @@ char Check_Space(int arr[][9],int p[][2],int x,int y)
     k=Array_scanf(arr,p,&x,&y);
     px=&x;
     py=&y;
-    printf("  \tenter the number you need to write here: ");
+    printf("  \t- Enter the number you need to write here: ");
     scanf("%d",&num);
     if(k==1)
     {
@@ -137,16 +138,17 @@ int Array2D_Print(int arr[][9],int size,int p[][2])
     int i,j,n=0;
     char k=0,count=0,row_table=0,coulumn_table=0;
     static char flag=0,c;           //the flag to maintain the adresses that saved at the array in its specific place statically..
-    printf("     ||");
+    printf(" C/R ||");
     for(int a=0; a<9; a++)
     {
         printf("  %d  |",coulumn_table);
         coulumn_table++;
     }
     printf("\n");
-    printf("=============================================================");
+    printf("-------------------------------------------------------------");
+    //printf("=============================================================");
     printf("\n");
-    printf("=============================================================");
+    printf("-------------------------------------------------------------");
     printf("\n");
     coulumn_table=0;
 
@@ -174,14 +176,14 @@ int Array2D_Print(int arr[][9],int size,int p[][2])
                 printf("  %d  |",arr[i][j]);
         }
         printf("\n");
-        printf("======================================================");
+        printf("=============================================================");
         printf("\n");
 
     }
     flag=1;
     if(count>0)
     {
-        printf("\n  \tRemaining places= %d\n\n",count);
+        printf("\n  \t- Remaining places= %d\n\n",count);
     }
     if(count==0)
     {
@@ -195,7 +197,13 @@ int Array2D_Print(int arr[][9],int size,int p[][2])
 int main()
 {
 
-    printf("\t\t**********Welcome To Soduku Game**********Made By Paula**********\n\n\n\n");
+    printf("\t\t*****************************************************************\n");
+    printf("\t\t*********************                      **********************\n");
+    printf("\t\t*********************Welcome To Soduku Game**********************\n");
+    printf("\t\t*********************                      **********************\n");
+    printf("\t\t*********************     Made By Paula    **********************\n");
+    printf("\t\t*********************                      **********************\n");
+    printf("\t\t*****************************************************************\n\n");
     int x,y,c=1;
     int arr[9][9]= {{' ',1,3,8,4,' ',9,7,' '},
         {7,6,' ',9,' ',1,5,4,8},
